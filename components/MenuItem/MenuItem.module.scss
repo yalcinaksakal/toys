@@ -9,7 +9,8 @@
   margin: 0 7.5px 15px;
   overflow: hidden;
   border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 6px 12px, rgba(0, 0, 0, 0.22) 0px 6px 3px;
+  box-shadow: none;
+  transition: box-shadow 0.2s ease-out;
   &:first-child {
     margin-right: 7.5px;
   }
@@ -24,6 +25,7 @@
 
   &:hover {
     cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 6px 12px, rgba(0, 0, 0, 0.22) 0px 6px 3px;
     & .background-image {
       transform: scale(1.2);
       transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
