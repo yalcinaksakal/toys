@@ -3,6 +3,8 @@ import Head from "next/head";
 import styles from "./Home.module.scss";
 
 const categories: string[] = [
+  "Girls",
+  "Boys",
   "Action figures",
   "Animals",
   "Cars and RC",
@@ -22,18 +24,7 @@ export default function Home() {
       <Head>
         <meta name="description" content="Toys Home Page" />
       </Head>
-      <div className={styles.homepage}>
-        <div className={styles["directory-menu"]}>
-          {["Girls","Boys"].map(category => (
-            <div className={styles["menu-item"]}>
-              <div className={styles.content}>
-                <h1 className={styles.title}>{category}</h1>
-                <span className={styles.subtitle}>SHOP NOW</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+
       <div className={styles.homepage}>
         <div className={styles["directory-menu"]}>
           {categories.map(category => (
