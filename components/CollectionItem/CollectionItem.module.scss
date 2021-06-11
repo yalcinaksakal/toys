@@ -1,0 +1,29 @@
+.collection-item {
+  min-width: 22%;
+  max-width: 150px;
+  min-height: 250px;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5px;
+  padding: 15px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+  .image {
+    width: 100%;
+    height: 90%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 5px;
+  }
+
+  .collection-footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+
+  }
+}

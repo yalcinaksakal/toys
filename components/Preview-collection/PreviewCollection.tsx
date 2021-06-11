@@ -1,5 +1,6 @@
 import styles from "./PreviewCollection.module.scss";
 import Toy from "../../models/toy";
+import CollectionItem from "../CollectionItem/CollectionItem";
 
 const PreviewCollection: React.FC<{ items: Toy[]; section: string }> = ({
   items,
@@ -10,7 +11,7 @@ const PreviewCollection: React.FC<{ items: Toy[]; section: string }> = ({
       <h1 className={styles.title}>{section.toUpperCase()}</h1>
       <div className={styles.preview}>
         {items.map(item => (
-          <div key={item.id}>{item.name}</div>
+          <CollectionItem key={item.id} item={item} />
         ))}
       </div>
     </div>
