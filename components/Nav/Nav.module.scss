@@ -1,0 +1,29 @@
+.header {
+  height: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  img {
+    cursor: pointer;
+  }
+  .options {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .option {
+      font-weight: bold;
+      padding: 10px;
+      transition: all 0.2s ease-out;
+      &:hover,
+      &.active {
+        transform: scale(1.1);
+        color: orange;
+        padding: 8px;
+      }
+    }
+  }
+}

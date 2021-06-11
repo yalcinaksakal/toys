@@ -1,6 +1,6 @@
 .collection-item {
-  min-width: 22%;
-  max-width: 150px;
+  min-width: 50px;
+  max-width: 200px;
   min-height: 250px;
   flex: 1 1 auto;
   display: flex;
@@ -9,7 +9,10 @@
   margin: 5px;
   padding: 15px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-
+  @media (max-width: 450px) {
+    max-width: 100%;
+    width: 90%;
+  }
   .image {
     width: 100%;
     height: 90%;
@@ -24,6 +27,5 @@
     display: flex;
     justify-content: space-between;
     font-size: 15px;
-
   }
 }
