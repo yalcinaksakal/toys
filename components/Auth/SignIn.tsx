@@ -1,4 +1,10 @@
 import React, { useState } from "react";
+import {
+  auth,
+  authProvider,
+  signInWithGoogle,
+} from "../../utils/firebase.utils";
+
 import CustomButton from "../CustomButtton/CustomButton";
 import FormInput from "../FormInput/FormInput";
 import styles from "./SignIn.module.scss";
@@ -14,6 +20,11 @@ const SignIn: React.FC = () => {
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
     const { name, value } = e.currentTarget;
     setAuthData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleGoogleSignIn = async () => {
+    authProvider.setCustomParameters({ prompt: "select_account" });
+    auth.signInWithPopup(authProvider);
   };
   return (
     <div className={styles["sign-in"]}>
@@ -38,6 +49,7 @@ const SignIn: React.FC = () => {
           required
         />
         <CustomButton type="submit">Sign In</CustomButton>
+        <button onClick={handleGoogleSignIn}>Sign In With Google</button>
       </form>
     </div>
   );
