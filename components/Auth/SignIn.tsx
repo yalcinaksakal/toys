@@ -25,6 +25,7 @@ const SignIn: React.FC = () => {
   const handleGoogleSignIn = async () => {
     authProvider.setCustomParameters({ prompt: "select_account" });
     auth.signInWithPopup(authProvider);
+    // auth.signInWithRedirect(authProvider);
   };
   return (
     <div className={styles["sign-in"]}>
@@ -49,7 +50,10 @@ const SignIn: React.FC = () => {
           required
         />
         <CustomButton type="submit">Sign In</CustomButton>
-        <button onClick={handleGoogleSignIn}>Sign In With Google</button>
+        <CustomButton onClick={handleGoogleSignIn}>
+          Google Sign in
+        </CustomButton>
+        {/* <button onClick={handleGoogleSignIn}>Sign In With Google</button> */}
       </form>
     </div>
   );

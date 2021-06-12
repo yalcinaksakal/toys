@@ -1,20 +1,21 @@
 .custom-button {
   min-width: 125px;
   width: auto;
-  height: 40px;
+  height: 30px;
   letter-spacing: 0.5px;
-  line-height: 38px;
-  padding: 0 15px;
+  line-height: 28px;
+  padding: 0 10px;
   font-size: 16px;
   background: transparent;
   border: 1px solid dodgerblue;
-  border-radius: 10px;
+  border-radius: 5px;
   color: dodgerblue;
   text-transform: uppercase;
   font-family: "Open Sans Condensed";
   font-weight: bolder;
-
+  margin: 10px 10px 0 0;
   cursor: pointer;
+  transition: all 0.2s ease-out;
 
   &:hover {
     background-color: orange;
