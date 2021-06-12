@@ -25,7 +25,7 @@ const SignIn: React.FC = () => {
     dispatch(loginActions.setLoggingIn(true));
     authProvider.setCustomParameters({ prompt: "select_account" });
     // auth.signInWithPopup(authProvider);
-    auth.signInWithRedirect(authProvider);
+    await auth.signInWithRedirect(authProvider);
     dispatch(loginActions.setLoggingIn(false));
   };
   return (
