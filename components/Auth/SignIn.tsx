@@ -1,16 +1,15 @@
 import React, { useState } from "react";
-import {
-  auth,
-  authProvider,
-  signInWithGoogle,
-} from "../../utils/firebase.utils";
-
+import { useDispatch } from "react-redux";
+import { auth, authProvider } from "../../utils/firebase.utils";
 import CustomButton from "../CustomButtton/CustomButton";
 import FormInput from "../FormInput/FormInput";
 import styles from "./SignIn.module.scss";
-
+import { AppDispatch } from "../../store";
+import { loginActions } from "../../store/login-slice";
 const SignIn: React.FC = () => {
   const [authData, setAuthData] = useState({ email: "", pwd: "" });
+
+  const dispatch = useDispatch<AppDispatch>();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,9 +22,11 @@ const SignIn: React.FC = () => {
   };
 
   const handleGoogleSignIn = async () => {
+    dispatch(loginActions.setLoggingIn(true));
     authProvider.setCustomParameters({ prompt: "select_account" });
-    auth.signInWithPopup(authProvider);
-    // auth.signInWithRedirect(authProvider);
+    // auth.signInWithPopup(authProvider);
+    auth.signInWithRedirect(authProvider);
+    dispatch(loginActions.setLoggingIn(false));
   };
   return (
     <div className={styles["sign-in"]}>
@@ -50,11 +51,8 @@ const SignIn: React.FC = () => {
           required
         />
         <CustomButton type="submit">Sign In</CustomButton>
-        <CustomButton onClick={handleGoogleSignIn}>
-          Google Sign in
-        </CustomButton>
-        {/* <button onClick={handleGoogleSignIn}>Sign In With Google</button> */}
       </form>
+      <CustomButton onClick={handleGoogleSignIn}>Google Sign in</CustomButton>
     </div>
   );
 };

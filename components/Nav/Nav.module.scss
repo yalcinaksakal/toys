@@ -4,7 +4,8 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 25px;
-  img {
+  img,
+  svg {
     cursor: pointer;
   }
   .options {
@@ -18,11 +19,11 @@
       font-weight: bold;
       padding: 10px;
       transition: all 0.2s ease-out;
+      fill: dodgerblue;
       &:hover,
       &.active {
-        transform: scale(1.1);
         color: orange;
-        padding: 8px;
+        fill: orange;
       }
     }
   }
