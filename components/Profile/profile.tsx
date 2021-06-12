@@ -11,9 +11,9 @@ const Profile = () => {
     <>
       <img
         src={userPicture}
-        style={{ width: "120px", borderRadius: "50%", margin: "15px 0" }}
+        style={{ width: "100px", borderRadius: "50%", margin: "15px 0" }}
       />
-      <h2>{displayName.toUpperCase()}</h2>
+      <h3>{displayName.toUpperCase()}</h3>
       <p style={{ marginBottom: "50px" }}>{email}</p>
       <CustomButton onClick={() => auth.signOut()}>Sign Out</CustomButton>
     </>
