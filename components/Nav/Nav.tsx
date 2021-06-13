@@ -33,32 +33,34 @@ const Nav: React.FC = () => {
         >
           <Link href="/contact">Contact</Link>
         </div>
-
-        {isLoggingIn ? (
-          <Spinner2 />
-        ) : isLoggedIn ? (
-          <div
-            onClick={() => auth.signOut()}
-            className={styles.option}
-            title="Sign Out"
-          >
-            <svg
-              style={{ transform: "translateY(4px)" }}
-              width="25"
-              height="25"
-              viewBox="0 0 25 25"
-            >
-              <path d={logoutSvg} />
-            </svg>
-          </div>
-        ) : (
+        {!isLoggingIn && (
           <div
             className={`${styles.option} ${
               pathname === "/auth" && styles.active
             }`}
           >
-            <Link href="/auth">Sign In</Link>
+            <Link href="/auth">{isLoggedIn ? "Profile" : "Sign In"}</Link>
           </div>
+        )}
+        {isLoggingIn ? (
+          <Spinner2 />
+        ) : (
+          isLoggedIn && (
+            <div
+              onClick={() => auth.signOut()}
+              className={styles.option}
+              title="Sign Out"
+            >
+              <svg
+                style={{ transform: "translateY(4px)" }}
+                width="25"
+                height="25"
+                viewBox="0 0 25 25"
+              >
+                <path d={logoutSvg} />
+              </svg>
+            </div>
+          )
         )}
       </div>
     </div>

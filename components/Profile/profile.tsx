@@ -3,13 +3,21 @@ import { RootState } from "../../store";
 import CustomButton from "../CustomButtton/CustomButton";
 import { auth } from "../../utils/firebase.utils";
 import { profile } from "../../assets/svgs";
+import { useRouter } from "next/dist/client/router";
 const Profile = () => {
   const { userPicture, email, displayName } = useSelector(
     (state: RootState) => state.login
   );
-  console.log("user:", userPicture);
+  const router = useRouter();
   return (
-    <>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "space-evenly",
+      }}
+    >
       {userPicture ? (
         <img
           src={userPicture}
@@ -28,8 +36,12 @@ const Profile = () => {
       )}
       <h3>{displayName?.toUpperCase()}</h3>
       <p style={{ marginBottom: "50px" }}>{email}</p>
+      <CustomButton onClick={() => router.push("/shop")} isGoogleSignIn>
+        Shop now
+      </CustomButton>
+      <br />
       <CustomButton onClick={() => auth.signOut()}>Sign Out</CustomButton>
-    </>
+    </div>
   );
 };
 
