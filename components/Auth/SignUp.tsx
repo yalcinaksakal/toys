@@ -30,14 +30,15 @@ const SignUp: React.FC = () => {
     setIsLoading(true);
     try {
       const { user } = await auth.createUserWithEmailAndPassword(email, pwd);
+      // console.log("user:", user);
       await createUserProfileDocument(user, { displayName });
-      setCredentials({
-        displayName: "",
-        email: "",
-        pwd: "",
-        confirmPwd: "",
-      });
-      setIsLoading(false);
+      // setCredentials({
+      //   displayName: "",
+      //   email: "",
+      //   pwd: "",
+      //   confirmPwd: "",
+      // });
+      // setIsLoading(false);
     } catch (err) {
       setFormErr(err.message);
       setIsLoading(false);
@@ -47,12 +48,13 @@ const SignUp: React.FC = () => {
   return isLoading ? (
     <div
       style={{
-        width: "100%",
+        width: "50vw",
+        marginLeft: "30px",
+        maxWidth: "500px",
         height: "550px",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        maxWidth: "500px",
       }}
     >
       <Spinner />

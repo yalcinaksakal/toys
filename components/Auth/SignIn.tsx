@@ -6,14 +6,25 @@ import FormInput from "../FormInput/FormInput";
 import styles from "./SignIn.module.scss";
 import { AppDispatch } from "../../store";
 import { loginActions } from "../../store/login-slice";
+import Spinner from "../Spinner/Spinner2";
 const SignIn: React.FC = () => {
   const [authData, setAuthData] = useState({ email: "", pwd: "" });
-
+  const [isLoading, setIsLoading] = useState(false);
+  const [err, setErr] = useState("");
   const dispatch = useDispatch<AppDispatch>();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setAuthData({ email: "", pwd: "" });
+    setErr("");
+    try {
+      setIsLoading(true);
+      await auth.signInWithEmailAndPassword(authData.email, authData.pwd);
+      setAuthData({ email: "", pwd: "" });
+      setIsLoading(false);
+    } catch (error) {
+      setIsLoading(false);
+      setErr("Invalid email or password");
+    }
   };
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
@@ -28,7 +39,20 @@ const SignIn: React.FC = () => {
     await auth.signInWithRedirect(authProvider);
     dispatch(loginActions.setLoggingIn(false));
   };
-  return (
+  return isLoading ? (
+    <div
+      style={{
+        width: "30vw",
+        minWidth: "180px",
+        height: "400px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <Spinner />
+    </div>
+  ) : (
     <div className={styles["sign-in"]}>
       <h2 className={styles.title}>I already have an account</h2>
       <span>Sign in with your email and password</span>
@@ -41,7 +65,6 @@ const SignIn: React.FC = () => {
           label="Email"
           required
         />
-
         <FormInput
           onChange={handleChange}
           name="pwd"
@@ -51,10 +74,11 @@ const SignIn: React.FC = () => {
           required
         />
         <CustomButton type="submit">Sign In</CustomButton>
-        <CustomButton onClick={handleGoogleSignIn} isGoogleSignIn>
+        <CustomButton type="button" onClick={handleGoogleSignIn} isGoogleSignIn>
           Google Sign in
         </CustomButton>
-      </form>
+      </form>{" "}
+      <p style={{ color: "red" }}>{err}</p>
     </div>
   );
 };
