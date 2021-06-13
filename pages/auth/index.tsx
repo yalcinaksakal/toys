@@ -8,6 +8,7 @@ const AuthPage: React.FC = () => {
   const { isLoggedIn, isLoggingIn } = useSelector(
     (state: RootState) => state.login
   );
+
   return (
     <>
       <Head>

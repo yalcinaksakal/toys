@@ -51,8 +51,10 @@ const SignIn: React.FC = () => {
           required
         />
         <CustomButton type="submit">Sign In</CustomButton>
+        <CustomButton onClick={handleGoogleSignIn} isGoogleSignIn>
+          Google Sign in
+        </CustomButton>
       </form>
-      <CustomButton onClick={handleGoogleSignIn}>Google Sign in</CustomButton>
     </div>
   );
 };

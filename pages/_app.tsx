@@ -5,7 +5,7 @@ import Nav from "../components/Nav/Nav";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/dist/client/router";
 import Spinner from "../components/Spinner/Spinner";
-import { auth } from "../utils/firebase.utils";
+import { auth, createUserProfileDocument } from "../utils/firebase.utils";
 // import firebase from "firebase";
 import store from "../store";
 import { Provider, useDispatch } from "react-redux";
@@ -37,17 +37,24 @@ function App({ Component, pageProps }: AppProps) {
   //check whether a user signed in or not
   useEffect(() => {
     dispatch(loginActions.setLoggingIn(true));
-    let unsubscribeFromAuth = auth.onAuthStateChanged(user => {
-      dispatch(
-        user
-          ? loginActions.login({
-              email: user.email,
-              displayName: user.displayName,
-              picture: user.photoURL,
+    let unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
+        // console.log(userRef);
+        userRef?.onSnapshot(snapShot => {
+          // console.log(snapShot, snapShot.data());
+          const data = snapShot.data();
+          dispatch(
+            loginActions.login({
+              uid: snapShot.id,
+              email: data?.email,
+              displayName: data?.displayName,
+              picture: userAuth.photoURL,
             })
-          : loginActions.logout()
-      );
-      dispatch(loginActions.setLoggingIn(false));
+          );
+        });
+      } else dispatch(loginActions.logout());
+     
     });
 
     return () => unsubscribeFromAuth();
