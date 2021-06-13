@@ -23,13 +23,18 @@ $main-color: dodgerblue;
     border-radius: 0;
     border-bottom: 1px solid $sub-color;
     margin: 25px 0;
-
+    @media (max-width: 400px) {
+      width: 80vw;
+    }
     &:focus {
       outline: none;
     }
 
     &:focus ~ .form-input-label {
       @include shrinkLabel();
+    }
+    @media (max-width: 500px) {
+      font-size: 15px;
     }
   }
 

@@ -49,12 +49,13 @@ function App({ Component, pageProps }: AppProps) {
               uid: snapShot.id,
               email: data?.email,
               displayName: data?.displayName,
-              picture: userAuth.photoURL,
+              picture: userAuth.photoURL ? userAuth.photoURL : "",
             })
           );
+          console.log("user auth: ", userAuth);
+          console.log("user ref: ", userRef);
         });
       } else dispatch(loginActions.logout());
-     
     });
 
     return () => unsubscribeFromAuth();
@@ -68,20 +69,7 @@ function App({ Component, pageProps }: AppProps) {
       </Head>
       <main>
         <Nav />
-        {isLoading ? (
-          <div
-            style={{
-              position: "fixed",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%,-50%)",
-            }}
-          >
-            <Spinner />
-          </div>
-        ) : (
-          <Component {...pageProps} />
-        )}
+        {isLoading ? <Spinner /> : <Component {...pageProps} />}
       </main>
     </>
   );
