@@ -1,5 +1,6 @@
 import styles from "./MenuItem.module.scss";
 import Section from "../../models/section";
+
 const MenuItem: React.FC<{ section: Section }> = ({ section }) => {
   return (
     <div className={styles["menu-item"]}>

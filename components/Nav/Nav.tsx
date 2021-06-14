@@ -7,9 +7,10 @@ import { auth } from "../../utils/firebase.utils";
 import { logoutSvg } from "../../assets/svgs";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
+import ProfileImg from "../Profile/ProfileImg";
 const Nav: React.FC = () => {
   const { pathname } = useRouter();
-  const { isLoggedIn, isLoggingIn } = useSelector(
+  const { isLoggedIn, isLoggingIn, userPicture } = useSelector(
     (state: RootState) => state.login
   );
 
@@ -39,7 +40,15 @@ const Nav: React.FC = () => {
               pathname === "/auth" && styles.active
             }`}
           >
-            <Link href="/auth">{isLoggedIn ? "Profile" : "Sign In"}</Link>
+            <Link href="/auth">
+              <a>
+                {isLoggedIn ? (
+                  <ProfileImg picture={userPicture} type="nav" />
+                ) : (
+                  "Sign In"
+                )}
+              </a>
+            </Link>
           </div>
         )}
         {isLoggingIn ? (

@@ -14,7 +14,8 @@ import { loginActions } from "../store/login-slice";
 
 function App({ Component, pageProps }: AppProps) {
   const [isLoading, setIsLoading] = useState(false);
-  const { events } = useRouter();
+  const router = useRouter();
+  const { events } = router;
   // const [currentUser, setCurUser] = useState<firebase.User | null>(null);
 
   // const { email } = useSelector((state: RootState) => state.login);
@@ -52,8 +53,9 @@ function App({ Component, pageProps }: AppProps) {
               picture: userAuth.photoURL ? userAuth.photoURL : "",
             })
           );
-          console.log("user auth: ", userAuth);
-          console.log("user ref: ", userRef);
+          router.push("/");
+          // console.log("user auth: ", userAuth);
+          // console.log("user ref: ", userRef);
         });
       } else dispatch(loginActions.logout());
     });
