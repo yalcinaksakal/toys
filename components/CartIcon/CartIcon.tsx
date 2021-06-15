@@ -1,7 +1,7 @@
 import styles from "./CartIcon.module.scss";
 
 import { cart } from "../../assets/svgs";
-const CartIcon: React.FC = () => {
+const CartIcon: React.FC<{ numberOfItems: number }> = ({ numberOfItems }) => {
   return (
     <div className={styles["cart-icon"]}>
       <svg
@@ -12,7 +12,7 @@ const CartIcon: React.FC = () => {
       >
         <path d={cart} />
       </svg>
-      <span className={styles["item-count"]}>10</span>
+      <span className={styles["item-count"]}>{numberOfItems}</span>
     </div>
   );
 };

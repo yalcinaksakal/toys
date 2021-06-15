@@ -13,9 +13,33 @@
   border: 1px solid rgba(128, 128, 128, 0.3);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-  top: 60px;
+  top: 300px;
   right: 10px;
   z-index: 5;
+  animation: open 0.2s ease-out forwards;
+
+  @keyframes open {
+    0% {
+      opacity: 0;
+      top: 250px;
+    }
+    25% {
+      opacity: 0.1;
+      top: 150px;
+    }
+    50% {
+      opacity: 0.2;
+      top: 60px;
+    }
+    75% {
+      opacity: 0.4;
+      top: 0px;
+    }
+    100% {
+      opacity: 1;
+      top: 60px;
+    }
+  }
 
   .cart-items {
     flex: auto;

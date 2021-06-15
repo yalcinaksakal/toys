@@ -18,7 +18,9 @@ const Nav: React.FC = () => {
   const { isLoggedIn, isLoggingIn, userPicture } = useSelector(
     (state: RootState) => state.login
   );
-  const { hidden } = useSelector((state: RootState) => state.cart);
+  const { hidden, numberOfItems } = useSelector(
+    (state: RootState) => state.cart
+  );
   const [hide, setHide] = useState(true);
 
   const dispatch = useDispatch<AppDispatch>();
@@ -34,76 +36,78 @@ const Nav: React.FC = () => {
   }, [hidden, hide]);
 
   return (
-    <div className={styles.header}>
-      <Link href="/">
-        <img width="100px" src="/icon.png" />
-      </Link>
-      <div className={styles.options}>
-        <div
-          className={`${styles.option} ${
-            pathname === "/toys" && styles.active
-          }`}
-        >
-          <Link href="/toys">Toys</Link>
-        </div>
-        <div
-          className={`${styles.option} ${
-            pathname === "/cart" && styles.active
-          }`}
-          onMouseEnter={() => setHide(false)}
-          onMouseLeave={() => setHide(true)}
-        >
-          <Link href="/cart">
-            <a>
-              <CartIcon />
-            </a>
-          </Link>
-        </div>
-        {!isLoggingIn && (
+    <>
+      <div className={styles.header}>
+        <Link href="/">
+          <img width="100px" src="/icon.png" />
+        </Link>
+        <div className={styles.options}>
           <div
             className={`${styles.option} ${
-              pathname === "/auth" && styles.active
+              pathname === "/toys" && styles.active
             }`}
           >
-            <Link href="/auth">
+            <Link href="/toys">Toys</Link>
+          </div>
+          <div
+            className={`${styles.option} ${
+              pathname === "/cart" && styles.active
+            }`}
+            onMouseEnter={() => setHide(false)}
+            onMouseLeave={() => setHide(true)}
+          >
+            <Link href="/cart">
               <a>
-                {isLoggedIn ? (
-                  <ProfileImg picture={userPicture} type="nav" />
-                ) : (
-                  "Sign In"
-                )}
+                <CartIcon numberOfItems={numberOfItems} />
               </a>
             </Link>
           </div>
-        )}
-        {isLoggingIn ? (
-          <Spinner2 />
-        ) : (
-          isLoggedIn && (
+          {!isLoggingIn && (
             <div
-              onClick={() => auth.signOut()}
-              className={styles.option}
-              title="Sign Out"
+              className={`${styles.option} ${
+                pathname === "/auth" && styles.active
+              }`}
             >
-              <svg
-                style={{ transform: "translateY(4px)" }}
-                width="25"
-                height="25"
-                viewBox="0 0 25 25"
-              >
-                <path d={logoutSvg} />
-              </svg>
+              <Link href="/auth">
+                <a>
+                  {isLoggedIn ? (
+                    <ProfileImg picture={userPicture} type="nav" />
+                  ) : (
+                    "Sign In"
+                  )}
+                </a>
+              </Link>
             </div>
-          )
-        )}
-      </div>
+          )}
+          {isLoggingIn ? (
+            <Spinner2 />
+          ) : (
+            isLoggedIn && (
+              <div
+                onClick={() => auth.signOut()}
+                className={styles.option}
+                title="Sign Out"
+              >
+                <svg
+                  style={{ transform: "translateY(4px)" }}
+                  width="25"
+                  height="25"
+                  viewBox="0 0 25 25"
+                >
+                  <path d={logoutSvg} />
+                </svg>
+              </div>
+            )
+          )}
+        </div>
+      </div>{" "}
       <div
         onMouseEnter={() => setHide(false)}
         onMouseLeave={() => setHide(true)}
       >
         {!hidden && <Cart />}
       </div>
-    </div>
+    </>
   );
 };
 
