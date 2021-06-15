@@ -1,0 +1,35 @@
+.price {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  user-select: none;
+
+  .action {
+    color: dodgerblue;
+    cursor: pointer;
+    font-size: 24px;
+    &:hover {
+      font-weight: bold;
+    }
+  }
+}
+
+.column {
+  display: flex;
+  width: 20%;
+  min-width: 60px;
+  flex-direction: column-reverse;
+  align-items: center;
+  user-select: none;
+  .action {
+    color: dodgerblue;
+
+    margin: 10px 0;
+    cursor: pointer;
+    font-size: 24px;
+    &:hover {
+      font-weight: bold;
+    }
+  }
+}

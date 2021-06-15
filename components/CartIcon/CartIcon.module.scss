@@ -6,7 +6,8 @@
 
   fill: dodgerblue;
   transition: fill 0.2s ease-out;
-  &:hover {
+  &:hover,
+  &.active {
     fill: orange;
   }
   .item-count {

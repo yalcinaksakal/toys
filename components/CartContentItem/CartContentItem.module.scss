@@ -2,7 +2,12 @@
   width: 100%;
   display: flex;
   margin-bottom: 15px;
-
+  border: 1px solid transparent;
+  border-radius: 5px;
+  padding: 5px 0;
+  &:hover {
+    border-color: dodgerblue;
+  }
   img {
     width: 30%;
     height: 30%;
@@ -19,9 +24,7 @@
     .name {
       font-size: 16px;
     }
-    .price {
-      //   color: orange;
-    }
+
     .total {
       color: orange;
     }

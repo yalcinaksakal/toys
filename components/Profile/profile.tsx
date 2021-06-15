@@ -23,7 +23,7 @@ const Profile: React.FC = () => {
       <ProfileImg picture={userPicture} type="page" />
       <h3>{displayName?.toUpperCase()}</h3>
       <p style={{ marginBottom: "50px" }}>{email}</p>
-      <CustomButton onClick={() => router.push("/shop")} isGoogleSignIn>
+      <CustomButton onClick={() => router.push("/toys")} isGoogleSignIn>
         Shop now
       </CustomButton>
       <br />

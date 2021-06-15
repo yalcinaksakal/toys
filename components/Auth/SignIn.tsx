@@ -1,17 +1,15 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+
 import { auth, authProvider } from "../../utils/firebase.utils";
 import CustomButton from "../CustomButtton/CustomButton";
 import FormInput from "../FormInput/FormInput";
 import styles from "./SignIn.module.scss";
-import { AppDispatch } from "../../store";
-import { loginActions } from "../../store/login-slice";
+
 import Spinner from "../Spinner/Spinner2";
 const SignIn: React.FC = () => {
   const [authData, setAuthData] = useState({ email: "", pwd: "" });
   const [isLoading, setIsLoading] = useState(false);
   const [err, setErr] = useState("");
-  const dispatch = useDispatch<AppDispatch>();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,11 +31,18 @@ const SignIn: React.FC = () => {
   };
 
   const handleGoogleSignIn = async () => {
-    dispatch(loginActions.setLoggingIn(true));
+    setErr("");
+    setIsLoading(true);
+    // dispatch(loginActions.setLoggingIn(true));
     authProvider.setCustomParameters({ prompt: "select_account" });
-    // auth.signInWithPopup(authProvider);
-    await auth.signInWithRedirect(authProvider);
-    dispatch(loginActions.setLoggingIn(false));
+    try {
+      await auth.signInWithPopup(authProvider);
+      // await auth.signInWithRedirect(authProvider);
+    } catch (err) {
+      setErr(err.message);
+    }
+    setIsLoading(false);
+    // dispatch(loginActions.setLoggingIn(false));
   };
   return isLoading ? (
     <div
@@ -77,7 +82,7 @@ const SignIn: React.FC = () => {
         <CustomButton type="button" onClick={handleGoogleSignIn} isGoogleSignIn>
           Google Sign in
         </CustomButton>
-      </form>{" "}
+      </form>
       <p style={{ color: "red" }}>{err}</p>
     </div>
   );

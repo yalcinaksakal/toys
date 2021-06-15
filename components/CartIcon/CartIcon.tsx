@@ -2,7 +2,10 @@ import styles from "./CartIcon.module.scss";
 
 import { cart } from "../../assets/svgs";
 import { useEffect, useState } from "react";
-const CartIcon: React.FC<{ numberOfItems: number }> = ({ numberOfItems }) => {
+const CartIcon: React.FC<{ numberOfItems: number; active: boolean }> = ({
+  numberOfItems,
+  active,
+}) => {
   const [bump, setBump] = useState(false);
   useEffect(() => {
     if (!numberOfItems) return;
@@ -12,7 +15,7 @@ const CartIcon: React.FC<{ numberOfItems: number }> = ({ numberOfItems }) => {
   }, [numberOfItems]);
 
   return (
-    <div className={styles["cart-icon"]}>
+    <div className={`${styles["cart-icon"]} ${active ? styles.active : ""}`}>
       <svg
         style={{ transform: "translateY(4px)" }}
         width="25"

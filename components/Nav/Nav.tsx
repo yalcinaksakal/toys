@@ -51,14 +51,17 @@ const Nav: React.FC = () => {
           </div>
           <div
             className={`${styles.option} ${
-              pathname === "/cart" && styles.active
+              pathname === "/checkout" && styles.active
             }`}
             onMouseEnter={() => setHide(false)}
             onMouseLeave={() => setHide(true)}
           >
-            <Link href="/cart">
+            <Link href="/checkout">
               <a>
-                <CartIcon numberOfItems={numberOfItems} />
+                <CartIcon
+                  numberOfItems={numberOfItems}
+                  active={pathname === "/checkout"}
+                />
               </a>
             </Link>
           </div>
@@ -101,12 +104,12 @@ const Nav: React.FC = () => {
           )}
         </div>
       </div>
-      {!hidden && numberOfItems > 0 && (
+      {!hidden && numberOfItems > 0 && pathname !== "/checkout" && (
         <div
           onMouseEnter={() => setHide(false)}
           onMouseLeave={() => setHide(true)}
         >
-          <Cart />
+          <Cart handleCheckout={setHide} />
         </div>
       )}
     </>

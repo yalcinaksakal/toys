@@ -4,10 +4,14 @@ import styles from "./Cart.module.scss";
 import { RootState } from "../../store";
 import CartContentItem from "../CartContentItem/CartContentItem";
 import React from "react";
-const Cart: React.FC = () => {
+import { useRouter } from "next/dist/client/router";
+const Cart: React.FC<{
+  handleCheckout: React.Dispatch<React.SetStateAction<boolean>>;
+}> = ({ handleCheckout }) => {
   const { numberOfItems, items, total } = useSelector(
     (state: RootState) => state.cart
   );
+  const router = useRouter();
   // console.log(numberOfItems, total, items);
   return (
     <div className={styles.cart}>
@@ -21,7 +25,13 @@ const Cart: React.FC = () => {
           numberOfItems > 1 ? "s" : ""
         } €${total}`}</span>
       ) : null}
-      <CustomButton >Checkout</CustomButton>
+      <CustomButton
+        onClick={() => {
+          router.push("/checkout"), handleCheckout(true);
+        }}
+      >
+        Checkout
+      </CustomButton>
     </div>
   );
 };
