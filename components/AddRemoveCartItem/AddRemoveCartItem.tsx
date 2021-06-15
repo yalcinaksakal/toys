@@ -15,7 +15,9 @@ const AddRemoveCartItem: React.FC<{ item: CartItem; isRow: boolean }> = ({
       >
         -
       </span>
-      <span>{`${item.numberOfPieces} × €${item.price}`}</span>
+      <span
+        className={styles.text}
+      >{`${item.numberOfPieces} × €${item.price}`}</span>
       <span
         className={styles.action}
         onClick={() => dispatch(cartActions.add({ item, amount: 1 }))}

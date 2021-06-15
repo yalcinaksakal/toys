@@ -1,7 +1,6 @@
 .price {
-  width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   user-select: none;
 
@@ -9,6 +8,12 @@
     color: dodgerblue;
     cursor: pointer;
     font-size: 24px;
+    &:hover {
+      font-weight: bold;
+    }
+  }
+  .text {
+    padding: 0 10px;
     &:hover {
       font-weight: bold;
     }
