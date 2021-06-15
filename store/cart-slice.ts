@@ -20,6 +20,7 @@ const cartSlice = createSlice({
     add(state, action) {
       const { item, amount } = action.payload;
       const additionalPrice = item.price * amount.toFixed(2);
+
       // console.log(item);
       if (state.items[`t${item.id}`]) {
         state.items[`t${item.id}`].numberOfPieces += amount;
@@ -33,6 +34,9 @@ const cartSlice = createSlice({
       }
       state.numberOfItems += amount;
       state.total += additionalPrice;
+      state.items[`t${item.id}`].totalPrice =
+        +state.items[`t${item.id}`].totalPrice.toFixed(2);
+      state.total = +state.total.toFixed(2);
     },
     remove(state, action) {},
     clear(state) {},

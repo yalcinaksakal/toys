@@ -6,7 +6,7 @@ import sections from "../../config/sections";
 import PreviewCollection from "../../components/Preview-collection/PreviewCollection";
 import toys from "../../config/toys";
 const ShopPage: React.FC = () => (
-  <>
+  <section>
     <Head>
       <meta name="description" content="Toys Shop Page" />
     </Head>
@@ -23,7 +23,7 @@ const ShopPage: React.FC = () => (
           )
       )}
     </div>
-  </>
+  </section>
 );
 
 export default ShopPage;

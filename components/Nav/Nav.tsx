@@ -100,13 +100,15 @@ const Nav: React.FC = () => {
             )
           )}
         </div>
-      </div>{" "}
-      <div
-        onMouseEnter={() => setHide(false)}
-        onMouseLeave={() => setHide(true)}
-      >
-        {!hidden && <Cart />}
       </div>
+      {!hidden && numberOfItems > 0 && (
+        <div
+          onMouseEnter={() => setHide(false)}
+          onMouseLeave={() => setHide(true)}
+        >
+          <Cart />
+        </div>
+      )}
     </>
   );
 };

@@ -1,4 +1,9 @@
 .header {
+  position: fixed;
+  z-index: 100;
+  background: white;
+  top: 0;
+  left: 0;
   height: 80px;
   width: 100%;
   display: flex;
@@ -22,7 +27,7 @@
     .option {
       padding: 5px;
       transition: all 0.2s ease-out;
-      color:dodgerblue;
+      color: dodgerblue;
       fill: dodgerblue;
       &:hover,
       &.active {

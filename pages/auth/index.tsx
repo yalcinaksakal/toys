@@ -12,7 +12,7 @@ const AuthPage: React.FC = () => {
   );
 
   return (
-    <>
+    <section>
       <Head>
         <meta name="description" content="Toys Sign In/Up Page" />
       </Head>
@@ -27,7 +27,7 @@ const AuthPage: React.FC = () => {
           <SignUp />
         </div>
       )}
-    </>
+    </section>
   );
 };
 
