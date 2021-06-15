@@ -1,0 +1,33 @@
+.cart {
+  position: absolute;
+  width: 40vw;
+  min-width: 250px;
+  max-width: 500px;
+  max-height: 80vh;
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background: white;
+  border-radius: 10px;
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  top: 60px;
+  right: 10px;
+  z-index: 5;
+
+  .cart-items {
+    flex: auto;
+    margin-bottom: 10px;
+    background: gray;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  button {
+    margin-top: auto;
+    width: 120px;
+  }
+}

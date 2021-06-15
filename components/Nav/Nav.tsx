@@ -1,18 +1,37 @@
 import styles from "./Nav.module.scss";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/dist/client/router";
 import Spinner2 from "../Spinner/Spinner2";
 import { auth } from "../../utils/firebase.utils";
 import { logoutSvg } from "../../assets/svgs";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store";
 import ProfileImg from "../Profile/ProfileImg";
+import CartIcon from "../CartIcon/CartIcon";
+import Cart from "../Cart/Cart";
+import { AppDispatch } from "../../store";
+import { cartActions } from "../../store/cart-slice";
+
 const Nav: React.FC = () => {
   const { pathname } = useRouter();
   const { isLoggedIn, isLoggingIn, userPicture } = useSelector(
     (state: RootState) => state.login
   );
+  const { hidden } = useSelector((state: RootState) => state.cart);
+  const [hide, setHide] = useState(true);
+
+  const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    const inputTimer = setTimeout(() => {
+      if (hidden !== hide) {
+        // console.log("setting", hide);
+        dispatch(cartActions.setCartHidden(hide));
+      }
+    }, 100);
+    return () => clearTimeout(inputTimer);
+  }, [hidden, hide]);
 
   return (
     <div className={styles.header}>
@@ -22,17 +41,23 @@ const Nav: React.FC = () => {
       <div className={styles.options}>
         <div
           className={`${styles.option} ${
-            pathname === "/shop" && styles.active
+            pathname === "/toys" && styles.active
           }`}
         >
-          <Link href="/shop">Shop</Link>
+          <Link href="/toys">Toys</Link>
         </div>
         <div
           className={`${styles.option} ${
-            pathname === "/contact" && styles.active
+            pathname === "/cart" && styles.active
           }`}
+          onMouseEnter={() => setHide(false)}
+          onMouseLeave={() => setHide(true)}
         >
-          <Link href="/contact">Contact</Link>
+          <Link href="/cart">
+            <a>
+              <CartIcon />
+            </a>
+          </Link>
         </div>
         {!isLoggingIn && (
           <div
@@ -71,6 +96,12 @@ const Nav: React.FC = () => {
             </div>
           )
         )}
+      </div>
+      <div
+        onMouseEnter={() => setHide(false)}
+        onMouseLeave={() => setHide(true)}
+      >
+        {!hidden && <Cart />}
       </div>
     </div>
   );

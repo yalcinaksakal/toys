@@ -1,0 +1,17 @@
+.cart-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  fill: dodgerblue;
+  transition: fill 0.2s ease-out;
+  &:hover {
+    fill: orange;
+  }
+  .item-count {
+    position: absolute;
+    font-size: 12px;
+    bottom: 16px;
+  }
+}

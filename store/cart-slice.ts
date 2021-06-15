@@ -1,41 +1,32 @@
 import { createSlice } from "@reduxjs/toolkit";
+import CartItem from "../models/cartItem";
 
-const initialState = {
-  isLoggedIn: false,
-  uid: "",
-  email: "",
-  displayName: "",
-  userPicture: "",
-  isLoggingIn: false,
+const initialState: {
+  items: { [key: string]: CartItem };
+  numberOfItems: number;
+  total: number;
+  hidden: boolean;
+} = {
+  items: {},
+  numberOfItems: 0,
+  total: 0,
+  hidden: true,
 };
 
-const loginSlice = createSlice({
-  name: "auth",
+const cartSlice = createSlice({
+  name: "cart",
   initialState,
   reducers: {
-    login(state, action) {
-      const { email, displayName, picture, uid } = action.payload;
-      state.isLoggedIn = true;
-      state.displayName = displayName;
-      state.email = email;
-      state.userPicture = picture;
-      state.uid = uid;
-      state.isLoggingIn = false;
-    },
-    logout(state) {
-      state.isLoggedIn = false;
-      state.displayName = "";
-      state.email = "";
-      state.userPicture = "";
-      state.uid = "";
-      state.isLoggingIn = false;
-    },
-    setLoggingIn(state, action) {
-      state.isLoggingIn = action.payload;
+    add(state, action) {},
+    remove(state, action) {},
+    clear(state) {},
+    setCart(state, action) {},
+    setCartHidden(state, action) {
+      state.hidden = action.payload;
     },
   },
 });
 
-export const loginActions = loginSlice.actions;
+export const cartActions = cartSlice.actions;
 
-export default loginSlice.reducer;
+export default cartSlice.reducer;
