@@ -53,7 +53,7 @@ function App({ Component, pageProps }: AppProps) {
               picture: userAuth.photoURL ? userAuth.photoURL : "",
             })
           );
-          router.push("/");
+          if (router.pathname === "/auth") router.push("/");
           // console.log("user auth: ", userAuth);
           // console.log("user ref: ", userRef);
         });

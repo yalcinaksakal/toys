@@ -24,4 +24,15 @@
       background: #4285f4;
     }
   }
+  &.cart {
+    background: rgb(86, 86, 86);
+    color: white;
+    padding: 0 5px;
+    position: absolute;
+    bottom: 60px;
+  }
+  &.cart:hover {
+    background: rgb(26, 175, 26);
+    color: white;
+  }
 }

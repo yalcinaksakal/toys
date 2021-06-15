@@ -35,7 +35,7 @@ const toys: Toy[] = [
     name: "Car Transport Truck",
     img: "car_transport_truck.jpeg",
     price: 29.99,
-    sectionId: 8,
+    sectionId: 9,
     gender: 2,
   },
   {
@@ -43,7 +43,7 @@ const toys: Toy[] = [
     name: "Ninja Turtles-Leonardo",
     img: "turtle.jpeg",
     price: 14.99,
-    sectionId: 2,
+    sectionId: 3,
     gender: 2,
   },
   {
@@ -51,7 +51,7 @@ const toys: Toy[] = [
     name: "Terminator",
     img: "terminator.jpeg",
     price: 18.99,
-    sectionId: 2,
+    sectionId: 3,
     gender: 2,
   },
   {
@@ -59,7 +59,7 @@ const toys: Toy[] = [
     name: "Jack Sparrow",
     img: "sparrow.jpeg",
     price: 21.99,
-    sectionId: 2,
+    sectionId: 3,
     gender: 2,
   },
   {
@@ -67,7 +67,7 @@ const toys: Toy[] = [
     name: "Schleich",
     img: "schleich.jpeg",
     price: 9.99,
-    sectionId: 2,
+    sectionId: 3,
     gender: 1,
   },
   {
@@ -75,7 +75,7 @@ const toys: Toy[] = [
     name: "Nun",
     img: "nun.jpeg",
     price: 17.99,
-    sectionId: 2,
+    sectionId: 3,
     gender: 0,
   },
   {
@@ -83,7 +83,7 @@ const toys: Toy[] = [
     name: "Aerith",
     img: "aerith.jpeg",
     price: 22.99,
-    sectionId: 2,
+    sectionId: 3,
     gender: 1,
   },
   {
@@ -91,7 +91,7 @@ const toys: Toy[] = [
     name: "Lock, Shock and Barrel",
     img: "nightmare.jpeg",
     price: 11.99,
-    sectionId: 2,
+    sectionId: 3,
     gender: 0,
   },
   {
@@ -99,7 +99,7 @@ const toys: Toy[] = [
     name: "Patrick",
     img: "patrick.jpeg",
     price: 18.99,
-    sectionId: 2,
+    sectionId: 3,
     gender: 0,
   },
   {
@@ -107,7 +107,7 @@ const toys: Toy[] = [
     name: "Simba",
     img: "simba.jpeg",
     price: 9.99,
-    sectionId: 3,
+    sectionId: 4,
     gender: 1,
   },
   {
@@ -115,7 +115,7 @@ const toys: Toy[] = [
     name: "Farm",
     img: "farm.jpeg",
     price: 29.99,
-    sectionId: 3,
+    sectionId: 4,
     gender: 0,
   },
   {
@@ -123,7 +123,7 @@ const toys: Toy[] = [
     name: "Tiger",
     img: "tiger.jpeg",
     price: 39.99,
-    sectionId: 3,
+    sectionId: 4,
     gender: 2,
   },
   {
@@ -131,7 +131,7 @@ const toys: Toy[] = [
     name: "Komodo Dragon",
     img: "komodo.jpeg",
     price: 39.99,
-    sectionId: 3,
+    sectionId: 4,
     gender: 2,
   },
   {
@@ -139,7 +139,7 @@ const toys: Toy[] = [
     name: "RC Dump Truck",
     img: "rc_dump_truck.jpeg",
     price: 59.99,
-    sectionId: 4,
+    sectionId: 5,
     gender: 2,
   },
   {
@@ -147,7 +147,7 @@ const toys: Toy[] = [
     name: "RC Helicopter",
     img: "heli.jpeg",
     price: 9.99,
-    sectionId: 4,
+    sectionId: 5,
     gender: 2,
   },
   {
@@ -155,7 +155,7 @@ const toys: Toy[] = [
     name: "RC Car",
     img: "car.jpeg",
     price: 6.99,
-    sectionId: 4,
+    sectionId: 5,
     gender: 2,
   },
   {
@@ -163,7 +163,7 @@ const toys: Toy[] = [
     name: "RC Car",
     img: "car2.jpeg",
     price: 7.99,
-    sectionId: 4,
+    sectionId: 5,
     gender: 2,
   },
   {
@@ -171,7 +171,7 @@ const toys: Toy[] = [
     name: "RC Drone",
     img: "drone.jpeg",
     price: 17.99,
-    sectionId: 4,
+    sectionId: 5,
     gender: 0,
   },
   {
@@ -179,7 +179,7 @@ const toys: Toy[] = [
     name: "RC Exost",
     img: "exost.jpeg",
     price: 26.05,
-    sectionId: 4,
+    sectionId: 5,
     gender: 2,
   },
   {
@@ -187,7 +187,7 @@ const toys: Toy[] = [
     name: "RC Ycoo Robot",
     img: "yco.jpeg",
     price: 38.85,
-    sectionId: 4,
+    sectionId: 5,
     gender: 0,
   },
   {
@@ -195,7 +195,7 @@ const toys: Toy[] = [
     name: "Lego Big Box",
     img: "lego.jpeg",
     price: 47.15,
-    sectionId: 5,
+    sectionId: 6,
     gender: 0,
   },
   {
@@ -203,7 +203,7 @@ const toys: Toy[] = [
     name: "Star Wars Lego",
     img: "starwars.jpeg",
     price: 17.99,
-    sectionId: 5,
+    sectionId: 6,
     gender: 2,
   },
   {
@@ -211,7 +211,7 @@ const toys: Toy[] = [
     name: "City Hair Salon Lego",
     img: "hairsalon.jpeg",
     price: 14.99,
-    sectionId: 5,
+    sectionId: 6,
     gender: 1,
   },
   {
@@ -219,7 +219,7 @@ const toys: Toy[] = [
     name: "Barbie 1 piece",
     img: "barbies.jpeg",
     price: 8.99,
-    sectionId: 6,
+    sectionId: 7,
     gender: 1,
   },
   {
@@ -227,7 +227,7 @@ const toys: Toy[] = [
     name: "L.O.L. 3 pieces",
     img: "lol.jpeg",
     price: 18.69,
-    sectionId: 6,
+    sectionId: 7,
     gender: 1,
   },
 
@@ -236,7 +236,7 @@ const toys: Toy[] = [
     name: "Wee Baby",
     img: "wee.jpeg",
     price: 31.59,
-    sectionId: 6,
+    sectionId: 7,
     gender: 1,
   },
   {
@@ -244,7 +244,7 @@ const toys: Toy[] = [
     name: "Uno",
     img: "uno.jpg",
     price: 0.99,
-    sectionId: 7,
+    sectionId: 8,
     gender: 0,
   },
   {
@@ -252,7 +252,7 @@ const toys: Toy[] = [
     name: "Monopoly",
     img: "monopoly.jpeg",
     price: 28.99,
-    sectionId: 7,
+    sectionId: 8,
     gender: 0,
   },
   {
@@ -260,7 +260,7 @@ const toys: Toy[] = [
     name: "Risk",
     img: "risk.jpeg",
     price: 43.15,
-    sectionId: 7,
+    sectionId: 8,
     gender: 0,
   },
   {
@@ -268,7 +268,7 @@ const toys: Toy[] = [
     name: "Scrabble",
     img: "scrabble.jpeg",
     price: 17.8,
-    sectionId: 7,
+    sectionId: 8,
     gender: 0,
   },
   {
@@ -276,7 +276,7 @@ const toys: Toy[] = [
     name: "YU-GI-OH",
     img: "yu.jpeg",
     price: 53.5,
-    sectionId: 7,
+    sectionId: 8,
     gender: 2,
   },
   {
@@ -284,7 +284,7 @@ const toys: Toy[] = [
     name: "Blocks",
     img: "blocks.jpeg",
     price: 11.2,
-    sectionId: 8,
+    sectionId: 9,
     gender: 0,
   },
   {
@@ -292,7 +292,7 @@ const toys: Toy[] = [
     name: "Bicycle",
     img: "bicycle.jpeg",
     price: 70,
-    sectionId: 8,
+    sectionId: 9,
     gender: 0,
   },
   {
@@ -300,7 +300,7 @@ const toys: Toy[] = [
     name: "Escavator",
     img: "escavator.jpeg",
     price: 15.65,
-    sectionId: 8,
+    sectionId: 9,
     gender: 2,
   },
   {
@@ -308,7 +308,7 @@ const toys: Toy[] = [
     name: "Kitchen",
     img: "kitchen.jpeg",
     price: 27.6,
-    sectionId: 8,
+    sectionId: 9,
     gender: 1,
   },
   {
@@ -316,7 +316,7 @@ const toys: Toy[] = [
     name: "House",
     img: "house.jpeg",
     price: 85.99,
-    sectionId: 8,
+    sectionId: 9,
     gender: 1,
   },
   {
@@ -324,7 +324,7 @@ const toys: Toy[] = [
     name: "Ambulance",
     img: "ambulance.jpeg",
     price: 15.8,
-    sectionId: 8,
+    sectionId: 9,
     gender: 2,
   },
 ];

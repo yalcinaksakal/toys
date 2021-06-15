@@ -14,7 +14,7 @@ const ShopPage: React.FC = () => (
     <div className={styles["shop-page"]}>
       {sections.map(
         section =>
-          section.id > 1 && (
+          section.id > 2 && (
             <PreviewCollection
               key={section.id}
               items={toys.filter(toy => toy.sectionId === section.id)}
