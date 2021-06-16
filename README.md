@@ -4,7 +4,7 @@ backend next.js, firestore
 
 front end react
 
-redux, redux tolkit and redux-persist
+redux, redux toolkit and redux-persist
 
 sign-in/up with email/pwd with firebase.auth
 
