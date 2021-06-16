@@ -12,6 +12,9 @@ import { Provider, useDispatch } from "react-redux";
 import { AppDispatch } from "../store";
 import { loginActions } from "../store/login-slice";
 
+import { PersistGate } from "redux-persist/integration/react";
+import { persistor } from "../store/index";
+
 function App({ Component, pageProps }: AppProps) {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
@@ -80,7 +83,9 @@ function App({ Component, pageProps }: AppProps) {
 function ToysSite(props: AppProps) {
   return (
     <Provider store={store}>
-      <App {...props} />
+      <PersistGate persistor={persistor}>
+        <App {...props} />
+      </PersistGate>
     </Provider>
   );
 }

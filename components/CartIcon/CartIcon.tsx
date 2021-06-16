@@ -24,9 +24,11 @@ const CartIcon: React.FC<{ numberOfItems: number; active: boolean }> = ({
       >
         <path d={cart} />
       </svg>
-      <span className={`${styles["item-count"]} ${bump ? styles.bump : ""}`}>
-        {numberOfItems}
-      </span>
+      {numberOfItems ? (
+        <span className={`${styles["item-count"]} ${bump ? styles.bump : ""}`}>
+          {numberOfItems}
+        </span>
+      ) : null}
     </div>
   );
 };

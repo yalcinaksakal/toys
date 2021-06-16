@@ -40,8 +40,9 @@ const SignIn: React.FC = () => {
       // await auth.signInWithRedirect(authProvider);
     } catch (err) {
       setErr(err.message);
+      setIsLoading(false);
     }
-    setIsLoading(false);
+    // setIsLoading(false);
     // dispatch(loginActions.setLoggingIn(false));
   };
   return isLoading ? (

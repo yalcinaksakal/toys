@@ -23,7 +23,7 @@ const Cart: React.FC<{
       {numberOfItems ? (
         <span className={styles.total}>{`${numberOfItems} piece${
           numberOfItems > 1 ? "s" : ""
-        } €${total}`}</span>
+        }, €${total}`}</span>
       ) : null}
       <CustomButton
         onClick={() => {
