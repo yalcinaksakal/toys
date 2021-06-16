@@ -1,6 +1,7 @@
 toys
 
 backend next.js, firestore
+
 front end react
 
 redux, redux tolkit and redux-persist
