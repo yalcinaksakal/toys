@@ -239,18 +239,6 @@ const toys: Toy[] = [
     sectionId: 7,
     gender: 1,
   },
-  {
-    id: 37,
-    name: "Rag Baby",
-    img: "rag.jpg",
-    price: 21.59,
-    sectionId: 7,
-    gender: 1,
-  },
-
-
-
-
 
   {
     id: 26,
@@ -341,6 +329,15 @@ const toys: Toy[] = [
     gender: 2,
   },
   {
+    id: 37,
+    name: "Rag Baby",
+    img: "rag.jpg",
+    price: 21.59,
+    sectionId: 7,
+    gender: 1,
+  },
+
+  {
     id: 38,
     name: "Lego Ocean Set",
     img: "ocean.jpg",
@@ -348,7 +345,6 @@ const toys: Toy[] = [
     sectionId: 6,
     gender: 2,
   },
-
 ];
 
 export default toys;
