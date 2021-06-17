@@ -1,5 +1,5 @@
 .collection-item {
-  min-width: 50px;
+  min-width: 150px;
   max-width: 200px;
   min-height: 280px;
   flex: 1 1 auto;
@@ -12,7 +12,7 @@
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   transition: all 0.2s ease-out;
   border-radius: 5px;
-  cursor: pointer;
+  
   position: relative;
   button {
     opacity: 0;

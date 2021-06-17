@@ -20,7 +20,7 @@ const CollectionItem: React.FC<{ item: Toy }> = ({ item }) => {
         <span>{item.name}</span>
         <span>{`€${item.price.toFixed(2)}`}</span>
       </div>
-    
+
       <CustomButton type="button" onClick={handleAddCart} isCart>
         Add to Cart
       </CustomButton>

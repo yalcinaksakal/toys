@@ -24,7 +24,7 @@
   }
 
   &:hover {
-    cursor: pointer;
+    // cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 6px 12px, rgba(0, 0, 0, 0.22) 0px 6px 3px;
     & .background-image {
       transform: scale(1.2);
@@ -50,7 +50,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    // border: 1px solid black;
+    cursor: pointer;
     background: white;
     opacity: 0.6;
     position: absolute;

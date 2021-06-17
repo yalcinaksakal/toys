@@ -22,7 +22,6 @@ const ShopPage: React.FC = () => (
                 .filter((_, i) => i < 4)}
               section={section.title}
               isMore
-              id={section.id}
             />
           )
       )}
