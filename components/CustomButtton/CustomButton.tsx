@@ -1,8 +1,9 @@
+import React from "react";
 import styles from "./CustomButton.module.scss";
 
 const CustomButton: React.FC<{
   type?: "button" | "submit" | "reset" | undefined;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent) => void;
   isGoogleSignIn?: boolean;
   isCart?: boolean;
 }> = ({ children, isGoogleSignIn = false, isCart = false, ...otherProps }) => (

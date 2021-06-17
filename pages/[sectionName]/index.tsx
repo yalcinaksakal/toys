@@ -3,6 +3,7 @@ import Head from "next/head";
 import PreviewCollection from "../../components/Preview-collection/PreviewCollection";
 import sections from "../../config/sections";
 import toys from "../../config/toys";
+import Error from "next/error";
 
 const SectionPage: React.FC = () => {
   const sectionName = useRouter().query.sectionName;
@@ -29,7 +30,11 @@ const SectionPage: React.FC = () => {
           isMore={false}
         />
       ) : (
-        <div>CATEGORY</div>
+        <div style={{ height: "40vh", overflow: "hidden", marginTop: "1rem" }}>
+          <div style={{ marginTop: "-15rem" }}>
+            <Error  statusCode="404" />
+          </div>
+        </div>
       )}
     </section>
   );
