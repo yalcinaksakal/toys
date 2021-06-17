@@ -3,7 +3,7 @@ import Head from "next/head";
 import PreviewCollection from "../../components/Preview-collection/PreviewCollection";
 import sections from "../../config/sections";
 import toys from "../../config/toys";
-
+import Page404 from "../../components/404/404";
 const SectionPage: React.FC = () => {
   const sectionName = useRouter().query.sectionName;
   const section = sections.find(
@@ -29,11 +29,7 @@ const SectionPage: React.FC = () => {
           isMore={false}
         />
       ) : (
-        <div style={{ height: "40vh", overflow: "hidden", marginTop: "1rem" }}>
-          <div style={{ marginTop: "-15rem" }}>
-            <h1>404 Page not found</h1>
-          </div>
-        </div>
+        <Page404 />
       )}
     </section>
   );

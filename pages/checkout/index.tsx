@@ -19,21 +19,13 @@ const CheckoutPage: React.FC = () => {
 
       <div className={styles["checkout-page"]}>
         <div className={styles["checkout-header"]}>
-          <div className={styles["header-block"]}>
-            <span>Product</span>
-          </div>
-          <div className={styles["header-block"]}>
-            <span>Description</span>
-          </div>
-          <div className={styles["header-block"]}>
-            <span>Quantity</span>
-          </div>
-          <div className={styles["header-block"]}>
-            <span>Total</span>
-          </div>
-          <div className={styles["header-block"]}>
-            <span>Remove</span>
-          </div>
+          {["Product", "Description", "Quantity", "Total", "Remove"].map(
+            (text, i) => (
+              <div key={i} className={styles["header-block"]}>
+                <span>{text}</span>
+              </div>
+            )
+          )}
         </div>
         {!isEmpty ? (
           Object.values(items).map(item => (
@@ -52,7 +44,7 @@ const CheckoutPage: React.FC = () => {
         {!isEmpty && (
           <div className={styles.total}>
             <span>
-              TOTAL: {numberOfItems} piece{numberOfItems > 1 ? "s" : ""}, €
+              TOTAL : {numberOfItems} piece{numberOfItems > 1 ? "s" : ""}, €
               {total}
             </span>
           </div>
