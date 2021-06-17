@@ -6,12 +6,27 @@
   .title {
     font-size: 28px;
     margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media (max-width: 750px) {
+      font-size: 20px;
+    }
+    .more {
+      color: dodgerblue;
+      margin-left: 20px;
+      font-size: 15px;
+      cursor: pointer;
+    }
   }
 
   .preview {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: left;
+    justify-content: center;
+    @media (max-width: 750px) {
+      justify-content: left;
+    }
   }
 }

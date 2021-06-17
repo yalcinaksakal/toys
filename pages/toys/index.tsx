@@ -17,8 +17,12 @@ const ShopPage: React.FC = () => (
           section.id > 2 && (
             <PreviewCollection
               key={section.id}
-              items={toys.filter(toy => toy.sectionId === section.id)}
+              items={toys
+                .filter(toy => toy.sectionId === section.id)
+                .filter((_, i) => i < 4)}
               section={section.title}
+              isMore
+              id={section.id}
             />
           )
       )}
