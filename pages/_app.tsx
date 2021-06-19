@@ -22,7 +22,7 @@ function App({ Component, pageProps }: AppProps) {
   // const [currentUser, setCurUser] = useState<firebase.User | null>(null);
 
   // const { email } = useSelector((state: RootState) => state.login);
-  
+
   const dispatch = useDispatch<AppDispatch>();
   // while navigating between pages show spinner
   useEffect(() => {
@@ -43,23 +43,27 @@ function App({ Component, pageProps }: AppProps) {
     dispatch(loginActions.setLoggingIn(true));
     let unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
-        const userRef = await createUserProfileDocument(userAuth);
-        // console.log(userRef);
-        userRef?.onSnapshot(snapShot => {
-          // console.log(snapShot, snapShot.data());
-          const data = snapShot.data();
-          dispatch(
-            loginActions.login({
-              uid: snapShot.id,
-              email: data?.email,
-              displayName: data?.displayName,
-              picture: userAuth.photoURL ? userAuth.photoURL : "",
-            })
-          );
-          if (router.pathname === "/auth") router.push("/");
-          // console.log("user auth: ", userAuth);
-          // console.log("user ref: ", userRef);
-        });
+        try {
+          const userRef = await createUserProfileDocument(userAuth);
+          // console.log(userRef);
+          userRef?.onSnapshot(snapShot => {
+            // console.log(snapShot, snapShot.data());
+            const data = snapShot.data();
+            dispatch(
+              loginActions.login({
+                uid: snapShot.id,
+                email: data?.email,
+                displayName: data?.displayName,
+                picture: userAuth.photoURL ? userAuth.photoURL : "",
+              })
+            );
+            if (router.pathname === "/auth") router.push("/");
+            // console.log("user auth: ", userAuth);
+            // console.log("user ref: ", userRef);
+          });
+        } catch (err) {
+          dispatch(loginActions.logout());
+        }
       } else dispatch(loginActions.logout());
     });
 
@@ -72,10 +76,9 @@ function App({ Component, pageProps }: AppProps) {
         <title>Toy Shop</title>
         <link rel="icon" href="/icon.png" />
       </Head>
-      <main>
-        <Nav />
-        {isLoading ? <Spinner /> : <Component {...pageProps} />}
-      </main>
+
+      <Nav />
+      {isLoading ? <Spinner /> : <Component {...pageProps} />}
     </>
   );
 }

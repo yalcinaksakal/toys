@@ -18,7 +18,7 @@ const SignIn: React.FC = () => {
       setIsLoading(true);
       await auth.signInWithEmailAndPassword(authData.email, authData.pwd);
       setAuthData({ email: "", pwd: "" });
-      setIsLoading(false);
+      // setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
       setErr("Invalid email or password");
