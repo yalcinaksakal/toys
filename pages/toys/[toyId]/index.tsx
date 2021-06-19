@@ -1,10 +1,12 @@
 import styles from "./ToyPage.module.scss";
 
 import CustomButton from "../../../components/CustomButtton/CustomButton";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../../store/cart-slice";
+
 import { useRouter } from "next/dist/client/router";
-import toys from "../../../config/toys";
+import { RootState } from "../../../store";
+
 import Page404 from "../../../components/404/404";
 const ToyPage: React.FC = () => {
   const dispatch = useDispatch();
@@ -12,6 +14,7 @@ const ToyPage: React.FC = () => {
     e.stopPropagation();
     dispatch(cartActions.add({ item, amount: 1 }));
   };
+  const { toys } = useSelector((state: RootState) => state);
   const router = useRouter();
   const toyId = router.query.toyId;
   const index = toyId ? +toyId : null;

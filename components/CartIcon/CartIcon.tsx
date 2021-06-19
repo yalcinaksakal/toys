@@ -15,7 +15,7 @@ const CartIcon: React.FC<{ numberOfItems: number; active: boolean }> = ({
   }, [numberOfItems]);
 
   return (
-    <div className={`${styles["cart-icon"]} ${active ? styles.active : ""}`}>
+    <div className={`${styles["cart-icon"]} ${active ? styles.active : ""} ${bump ? styles.bump : ""}`}>
       <svg
         style={{ transform: "translateY(4px)" }}
         width="25"
@@ -25,7 +25,7 @@ const CartIcon: React.FC<{ numberOfItems: number; active: boolean }> = ({
         <path d={cart} />
       </svg>
       {numberOfItems ? (
-        <span className={`${styles["item-count"]} ${bump ? styles.bump : ""}`}>
+        <span className={`${styles["item-count"]} `}>
           {numberOfItems}
         </span>
       ) : null}

@@ -1,11 +1,16 @@
 import { useRouter } from "next/dist/client/router";
 import Head from "next/head";
 import PreviewCollection from "../../components/Preview-collection/PreviewCollection";
-import sections from "../../config/sections";
-import toys from "../../config/toys";
+
 import Page404 from "../../components/404/404";
+
+import { RootState } from "../../store";
+import { useSelector } from "react-redux";
 const SectionPage: React.FC = () => {
   const sectionName = useRouter().query.sectionName;
+  const { directory: sections, toys } = useSelector(
+    (state: RootState) => state
+  );
   const section = sections.find(
     section => section.title.toLowerCase().replace(/ /g, "") === sectionName
   );

@@ -2,6 +2,8 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import loginReducer from "./login-slice";
 import cartReducer from "./cart-slice";
+import directoryReducer from "./directory-slice";
+import toysReducer from "./toys-slice";
 
 import { persistStore } from "redux-persist";
 import { persistReducer } from "redux-persist";
@@ -15,6 +17,8 @@ const store = configureStore({
   reducer: {
     login: loginReducer,
     cart: persistReducer(persistConfig, cartReducer),
+    directory: directoryReducer,
+    toys: toysReducer,
   },
   middleware: [thunk],
 });

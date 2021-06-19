@@ -15,8 +15,9 @@
     font-size: 8px;
     bottom: 16px;
   }
-  .bump {
+  &.bump {
     color: orange;
+    fill:orange;
     animation: bump 300ms ease-out;
   }
 
@@ -26,7 +27,7 @@
     }
 
     50% {
-      transform: scale(3);
+      transform: scale(2);
     }
     70% {
       transform: scale(1.5);
