@@ -20,11 +20,14 @@
   @media (max-width: 450px) {
     max-width: 100%;
     width: 90%;
+    button {
+      opacity: 0.6;
+    }
   }
   &:hover {
     box-shadow: rgba(36, 112, 233, 0.6) 0px 2px 8px 0px;
     button {
-      opacity: 0.8;
+      opacity: 0.6;
       &:hover {
         opacity: 1;
       }

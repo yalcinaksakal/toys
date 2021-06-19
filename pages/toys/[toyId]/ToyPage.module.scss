@@ -27,7 +27,7 @@
   }
   p {
     flex: auto;
-    padding-right: 30px;
+    padding: 20px 40px;
     text-align: justify;
   }
   @media (min-width: 600px) {
@@ -35,6 +35,7 @@
     padding: 60px 0;
     p {
       width: 40%;
+      padding-right: 30px;
     }
   }
 }

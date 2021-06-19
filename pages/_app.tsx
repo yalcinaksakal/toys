@@ -22,7 +22,7 @@ function App({ Component, pageProps }: AppProps) {
   // const [currentUser, setCurUser] = useState<firebase.User | null>(null);
 
   // const { email } = useSelector((state: RootState) => state.login);
-
+  
   const dispatch = useDispatch<AppDispatch>();
   // while navigating between pages show spinner
   useEffect(() => {
