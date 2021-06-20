@@ -6,6 +6,7 @@ import PreviewCollection from "../../components/Preview-collection/PreviewCollec
 
 import { RootState } from "../../store";
 import { useSelector } from "react-redux";
+import Section from "../../models/section";
 
 const ShopPage: React.FC = () => {
   const { directory: sections, toys } = useSelector(
@@ -19,7 +20,7 @@ const ShopPage: React.FC = () => {
 
       <div className={styles["shop-page"]}>
         {sections.map(
-          section =>
+          (section:Section) =>
             section.id > 2 && (
               <PreviewCollection
                 key={section.id}
