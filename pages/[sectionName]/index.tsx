@@ -6,13 +6,14 @@ import Page404 from "../../components/404/404";
 
 import { RootState } from "../../store";
 import { useSelector } from "react-redux";
+import Section from "../../models/section";
 const SectionPage: React.FC = () => {
   const sectionName = useRouter().query.sectionName;
   const { directory: sections, toys } = useSelector(
     (state: RootState) => state
   );
   const section = sections.find(
-    section => section.title.toLowerCase().replace(/ /g, "") === sectionName
+    (section:Section) => section.title.toLowerCase().replace(/ /g, "") === sectionName
   );
 
   return (
