@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 const Directory: React.FC = () => {
   const sections = useSelector((state: RootState) => state.directory);
-  // console.log(ections);
+
   return (
     <div className={styles["directory-menu"]}>
       {sections.map(section => (

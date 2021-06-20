@@ -40,7 +40,24 @@ function App({ Component, pageProps }: AppProps) {
 
   //check whether a user signed in or not
   useEffect(() => {
+    //programatically ading toys to firestore
+    // addSections(sections,toys);
+    // const setContent = async () => {
+    //   const data = await getSections();
+    //   const sections: { [key: string]: { imgUrl: string; title: string } } = {};
+    //   const items: { [key: string]: Toy } = {};
+    //   Object.entries(data).forEach(([key, value]) => {
+    //     const { title, imgUrl, toys } = value;
+    //     sections[key] = { title, imgUrl };
+    //     Object.entries(toys).forEach(
+    //       ([key, value]) => (items[key] = { ...value })
+    //     );
+    //   });
+    //   dispatch(directoryActions.setDirectory(sections));
+    // };
+
     dispatch(loginActions.setLoggingIn(true));
+    // setContent();
     let unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         try {
