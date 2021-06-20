@@ -1,8 +1,8 @@
+// @ts-ignore
 import { createSlice } from "@reduxjs/toolkit";
 import sections from "../assets/Sections";
-import Section from "../models/section";
 
-const initialState: Section[] = sections;
+const initialState = sections;
 
 const directorySlice = createSlice({
   name: "directory",
