@@ -54,7 +54,7 @@ const CheckoutPage: React.FC = () => {
         <div className={styles.payment}>
           <StripeButton price={total} />
         </div>
-        <div style={{ fontSize: "12px", color: "orange", textAlign: "center" }}>
+        <div style={{ fontSize: "12px", color: "red", textAlign: "center" }}>
           <p> Please use test credit card for payments</p>
           <p>4242 4242 4242 4242 Exp: 01/23 CVC:123</p>
         </div>
