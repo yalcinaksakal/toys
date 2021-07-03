@@ -4,6 +4,8 @@ import styles from "./Checkout.module.scss";
 import { RootState } from "../../store";
 import CheckoutItem from "../../components/CheckoutItem/CheckoutItem";
 import CustomButton from "../../components/CustomButtton/CustomButton";
+import StripeButton from "../../components/Stripe-Button/StripeButton";
+
 import { useRouter } from "next/dist/client/router";
 const CheckoutPage: React.FC = () => {
   const { numberOfItems, items, total } = useSelector(
@@ -49,6 +51,13 @@ const CheckoutPage: React.FC = () => {
             </span>
           </div>
         )}
+        <div className={styles.payment}>
+          <StripeButton price={total} />
+        </div>
+        <div style={{ fontSize: "12px", color: "orange", textAlign: "center" }}>
+          <p> Please use test credit card for payments</p>
+          <p>4242 4242 4242 4242 Exp: 01/23 CVC:123</p>
+        </div>
       </div>
     </section>
   );
