@@ -6,6 +6,7 @@ import FormInput from "../FormInput/FormInput";
 import styles from "./SignIn.module.scss";
 
 import Spinner from "../Spinner/Spinner2";
+
 const SignIn: React.FC = () => {
   const [authData, setAuthData] = useState({ email: "", pwd: "" });
   const [isLoading, setIsLoading] = useState(false);
